@@ -6,7 +6,9 @@ import numpy as np
 import random
 from scipy.ndimage import zoom
 
-ca = plt.imread('images/squad.png')
+img_name = input("Enter image name: ")
+
+ca = plt.imread(img_name)
 t = 0.50
 
 """"
@@ -18,10 +20,6 @@ Psuedocode / Process
 3) Modify the code to change the pixel shade based on the color of each pixel (Done)
 4)Using the random library set up random creepy texts through out the screen for each pixel (Done)
 5) Make an overlay somewhere (Partially done, going to create an overlay on the right)
-6) Set up Tkinter or Flask (Python web framework) so their is gui + user can send own pictures
-
-Optional:
-If flask - Set up database and a seperate part of the website in order to show the creation to the world
 """
 
 
@@ -36,7 +34,6 @@ columns = ca.shape[1]
 
 # make list 
 creepy_phrases = ["Don't turn around", "Look behind you", ':)', "Shut the door:)", "Do you hear me?", "Is this you!?"]
-
 for i in range(ca.shape[0]): # rows
      for j in range(ca.shape[1]): # columns
           #Check if red, green, and blue are > t:
@@ -74,3 +71,4 @@ plt.text(rows/4, columns/6, random.choice(creepy_phrases), color='white', fontsi
 
 plt.imshow(ca)
 plt.show()
+
